@@ -1,11 +1,162 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* outline: solid 1px red; */
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #333;
+    color: white;
+    background-image: url('/sources/img/SalaEsperaSaturada.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 40px; /* Espacio para el footer */
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Semitransparente para permitir el blur */
+    backdrop-filter: blur(10px);
+    z-index: 0;
+}
+
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    backdrop-filter: blur(15px);
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 20px 20px;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.left-header,
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    list-style: none;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    color: white;
+    padding: 5px;
+    text-align: start;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    color: white;
+}
+
+.divider {
+    width: 100%;
+    height: 3px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+/* NAV LINKS */
+.nav-list li {
+    position: relative;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #ffcc00;
+}
+
+.nav-list li a:visited {
+    color: white;
+}
+
+.nav-list li a:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.5);
+}
+
+.nav-list li a:active {
+    color: #ff9900;
+}
+
+.nav-list li a.active {
+    color: #ffcc00;
+}
+
+/* Subrayado animado */
+.nav-list li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+.nav-list li:hover::after,
+.nav-list li a.active::after,
+.nav-list li a:hover::after {
+    width: 100%;
 }
