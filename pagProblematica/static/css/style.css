@@ -158,11 +158,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-list li a:hover,
-.fuentes-list li a:hover {
-    color: #ffcc00;
-}
-
 .nav-list li a:visited,
 .fuentes-list li a:visited {
     color: white;
