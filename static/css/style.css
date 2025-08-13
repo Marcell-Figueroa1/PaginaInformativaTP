@@ -2,25 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* outline: solid 1px red; */
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: white;
-    background-image: url('/sources/img/SalaEsperaSaturada.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    gap: 20px;
-    padding-bottom: 40px; /* Espacio para el footer */
+    gap: 0px;
+    padding-bottom: 40px;
 }
 
 .background-blur {
@@ -29,9 +23,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Semitransparente para permitir el blur */
-    backdrop-filter: blur(10px);
     z-index: 0;
+    background: #2692bd;
+    background: linear-gradient(161deg,rgba(38, 146, 189, 1) 0%, rgba(4, 224, 217, 1) 50%, rgba(83, 237, 150, 1) 100%);
 }
 
 .page-wrapper {
@@ -45,13 +39,13 @@ body {
     align-items: center;
     align-content: center;
     flex-flow: wrap;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
     color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0 0 20px 20px;
+    animation: entrarIzquierda 1s ease;
 }
 
 .logo-image {
@@ -70,20 +64,88 @@ body {
     list-style: none;
 }
 
-.main-content {
+/* Contenedor principal del scroll */
+.container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: entrarIzquierda 1s ease;
+}
+
+.scroll-container {
+    display: flex;
+    width: 800%;
+    /* 8 imágenes (4 originales + 4 duplicadas) × 100% cada una */
+    height: 550px;
+    /* Mayor altura para imágenes grandes */
+    animation: slide 20s infinite linear;
+}
+
+.img-scroll {
+    width: 12.5%;
+    /* Cada imagen ocupa 1/8 del contenedor total */
+    height: 100%;
+    object-fit: cover;
+    /* Cubre todo el área manteniendo proporciones */
+    object-position: center center;
+    /* Centra la imagen */
+    flex-shrink: 0;
+    display: block;
+    min-width: 800px;
+    /* Ancho mínimo mayor para imágenes grandes (1200x800) */
+    max-width: none;
+    /* Sin límite máximo */
+}
+
+/* Opción alternativa: Si prefieres que se estire sin recortar */
+.img-scroll.stretch {
+    object-fit: fill;
+    /* Estira la imagen para llenar completamente el contenedor */
+}
+
+/* Opción alternativa: Si prefieres mantener toda la imagen visible */
+.img-scroll.contain {
+    object-fit: contain;
+    /* Mantiene toda la imagen visible, puede dejar espacios */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Fondo para los espacios vacíos */
+}
+
+.contenido-informacion  {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+}
+
+.informacion {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     flex-wrap: wrap;
     padding: 30px;
-    margin: 40px auto;
+    margin: 50px auto;
     max-width: 1200px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
+    animation: entrarArriba .5s ease;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Se mueve hasta mostrar las 4 imágenes duplicadas */
+    }
 }
 
 .footer {
@@ -94,48 +156,10 @@ body {
     color: white;
     padding: 5px;
     text-align: start;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
 }
 
-.informacion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
-
-.team-list {
-    list-style: none;;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    margin: 0;
-    line-height: 1.5;
-}
-
-.team{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    text-align: center;
-}
-
-.divider {
-    width: 100%;
-    height: 3px;
-    background-color: #ccc;
-    margin: 20px 0;
-}
-
-/* NAV LINKS */
 .nav-list li {
     position: relative;
 }
@@ -143,7 +167,6 @@ body {
 .nav-list li a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
     transition: color 0.3s ease;
 }
 
@@ -168,7 +191,6 @@ body {
     color: #ffcc00;
 }
 
-/* Subrayado animado */
 .nav-list li::after {
     content: '';
     position: absolute;
@@ -185,7 +207,7 @@ body {
 .nav-list li a:hover::after {
     width: 100%;
 }
-/* Adaptación en telefono */
+
 @media (max-width: 600px) {
     .header {
         flex-direction: column;
@@ -193,7 +215,8 @@ body {
         text-align: center;
     }
 
-    .left-header, .nav-list {
+    .left-header,
+    .nav-list {
         justify-content: center;
         gap: 10px;
         padding: 10px 0;
@@ -207,18 +230,52 @@ body {
     .nav-list li {
         margin: 5px 0;
     }
+
     .footer {
         font-size: 10px;
         text-align: center;
     }
+
     .logo-image {
         width: 30px;
         height: 30px;
     }
+
     .title {
         font-size: 25px;
     }
+
     .team-list {
         font-size: 14px;
+    }
+
+    .scroll-container {
+        height: 350px;
+        /* Altura mayor para móviles */
+    }
+
+    .img-scroll {
+        min-width: 500px;
+        /* Ancho mínimo para móviles, manteniendo buena calidad */
+    }
+}
+
+@keyframes entrarArriba {
+    from {
+        transform: translateY(-200%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes entrarIzquierda {
+    from {
+        transform: translateX(-200%);
+    }
+
+    to {
+        transform: translateX(0);
     }
 }

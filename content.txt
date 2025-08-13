@@ -1,0 +1,42 @@
+<main class="main-content">
+        <section class="informacion">
+            <h2 id="que-somos">¿Qué es AsistIoT?</h2>
+            <p>
+                AsistIoT es una plataforma diseñada para mejorar la asistencia médica mediante
+                el uso de tecnologías IoT (Internet de las Cosas).
+            </p>
+            <hr class="divider">
+            <h2 id="proposito">Propósito del proyecto</h2>
+            <p>
+                Este proyecto busca reducir el tiempo de espera en centros médicos automatizando atenciones básicas
+                como la toma de
+                presión arterial, temperatura corporal, frecuencia cardíaca (pulso) y priorización de pacientes en
+                estado crítico.
+                Así, se optimiza el proceso de atención médica, haciéndolo más rápido y eficiente.
+            </p>
+            <hr class="divider">
+            <h2 id="problema">Problema a abordar</h2>
+            <p>
+                Actualmente, los tiempos de espera en centros médicos son excesivamente largos, lo que provoca
+                molestias en los
+                pacientes e incluso empeoramiento de su estado de salud al no recibir atención oportuna.
+            </p>
+            <hr class="divider">
+            <h2 id="idea">La idea del proyecto</h2>
+            <p>
+                Desarrollar una cabina inteligente que realice la toma automática de signos vitales, ayudando al
+                personal
+                médico a priorizar rápidamente a los pacientes más críticos y reducir el tiempo de atención inicial.
+            </p>
+            <hr class="divider">
+        </section>
+        <section class="team">
+            <h2 id="integrantes">Integrantes del proyecto</h2>
+            <ul class="team-list">
+                <li>Yetzibel Gonzalez</li>
+                <li>Marcell Figueroa</li>
+                <li>Manuel Ulloa</li>
+                <li>Martina Lonconao</li>
+                <li>Benjamin Rios</li>
+            </ul>
+    </main>
